@@ -38,12 +38,12 @@ export async function POST(req: NextRequest) {
     const newMessage=[...messages,intructionMessage];
     console.log(newMessage);
       const values={
-        model:"gemma2",
+        model:"llama3.1:8b",
         prompt:userMessage.content,
         messages:newMessage,
         stream:false,
       }
-      const response=await axios.post("http://130.198.9.183:11434/api/generate",values);
+      const response=await axios.post("http://130.198.17.227:11434/api/generate",values);
       console.log(response.data);
       const response2={
         "role":"system",

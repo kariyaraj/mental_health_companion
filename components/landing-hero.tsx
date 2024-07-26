@@ -16,11 +16,11 @@ export const LandingHero = () => {
           <TypewriterComponent
             options={{
               strings: [
-                "Chatbot.",
-                "Photo Generation.",
-                "Music Generation.",
-                "Code Generation.",
-                "Video Generation.",
+                // "Chatbot.",
+                "Therapist.",
+                "General Chat.",
+                "Mood Tracking.",
+                "Mindfulness & Meditation.",
               ],
               autoStart: true,
               loop: true,
@@ -45,9 +45,9 @@ export const LandingHero = () => {
         </Button>
       </div>
 
-      <div className="text-zinc-400 text-xs md:text-sm font-normal">
+      {/* <div className="text-zinc-400 text-xs md:text-sm font-normal">
         No credit card required.
-      </div>
+      </div> */}
     </div>
   );
 };

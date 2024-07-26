@@ -30,7 +30,7 @@ export const TESTIMONIALS = [
       "As a student, this app has been a lifesaver for organizing my tasks and schedules.",
   },
   {
-    name: "Aniket",
+    name: "Srijit",
     image: "/testimonials/aniket.jpeg",
     title: "Entrepreneur",
     description:

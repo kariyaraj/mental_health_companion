@@ -12,6 +12,7 @@ import axios from "axios";
 
 // const openai = new OpenAIApi(configuration);
 
+
 export async function POST(req: NextRequest) {
   try {
     const { userId } = auth();
@@ -40,12 +41,12 @@ export async function POST(req: NextRequest) {
     // });
 
       const values={
-        model:"gemma2",
+        model:"llama3.1:8b",
         prompt:userMessage.content,
         messages:messages,
         stream:false,
       }
-      const response=await axios.post("http://130.198.9.183:11434/api/generate",values);
+      const response=await axios.post("http://130.198.17.227:11434/api/generate",values);
       const response2={
         "role":"system",
         "content":response.data.response
