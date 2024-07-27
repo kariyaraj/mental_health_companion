@@ -2,15 +2,14 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
-import { Code } from "lucide-react";
+import { Brain } from "lucide-react";
 import { useRouter } from "next/navigation";
 import type { ChatCompletionRequestMessage } from "openai";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import ReactMarkdown from "react-markdown";
 import { toast } from "sonner";
 import * as z from "zod";
-
+import { Suspense } from "react";
 import { BotAvatar } from "@/components/bot-avatar";
 import { Empty } from "@/components/empty";
 import { Heading } from "@/components/heading";
@@ -21,15 +20,15 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useProModal } from "@/hooks/use-pro-modal";
 import { cn } from "@/lib/utils";
-import { codeFormSchema } from "@/schemas";
+import { conversationFormSchema } from "@/schemas";
 
-const CodePage = () => {
+const ConversationPage = () => {
   const proModal = useProModal();
   const router = useRouter();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
 
-  const form = useForm<z.infer<typeof codeFormSchema>>({
-    resolver: zodResolver(codeFormSchema),
+  const form = useForm<z.infer<typeof conversationFormSchema>>({
+    resolver: zodResolver(conversationFormSchema),
     defaultValues: {
       prompt: "",
     },
@@ -37,22 +36,22 @@ const CodePage = () => {
 
   const isLoading = form.formState.isSubmitting;
 
-  const onSubmit = async (values: z.infer<typeof codeFormSchema>) => {
+  const onSubmit = async (values: z.infer<typeof conversationFormSchema>) => {
     try {
       const userMessage: ChatCompletionRequestMessage = {
         role: "user",
         content: values.prompt,
       };
-
       const newMessages = [...messages, userMessage];
 
-      const response = await axios.post("/api/code", {
+      const response = await axios.post("/api/mindfulness", {
         messages: newMessages,
-        userMessage:userMessage,
+        userMessage: userMessage,
       });
-      console.log
+      console.log(response);
       setMessages((current) => [...current, userMessage, response.data]);
-    } catch (error: unknown) {
+      console.log(messages);
+    } catch (error: any) {
       if (axios.isAxiosError(error) && error?.response?.status === 403)
         proModal.onOpen();
       else toast.error("Something went wrong.");
@@ -67,11 +66,11 @@ const CodePage = () => {
   return (
     <div>
       <Heading
-        title="Code Generation"
-        description="Generate code using descriptive text."
-        icon={Code}
-        iconColor="text-green-700"
-        bgColor="bg-green-700/10"
+        title="Mindfulness and Meditation"
+        description="Receive personalized support and insights from our AI therapist, designed to understand and assist you anytime."
+        icon={Brain}
+        iconColor="text-violet-500"
+        bgColor="bg-violet-500/10"
       />
 
       <div className="px-4 lg:px-8">
@@ -92,7 +91,7 @@ const CodePage = () => {
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
                         aria-disabled={isLoading}
-                        placeholder="Simple toggle button using React hooks."
+                        placeholder="What are some mindfulness techniques to help with focus and relaxation?"
                         {...field}
                       />
                     </FormControl>
@@ -120,10 +119,10 @@ const CodePage = () => {
           {messages.length === 0 && !isLoading && (
             <Empty label="No conversation started." />
           )}
-          <div className="flex flex-col-reverse gap-y-4">
-            {messages.map((message) => (
+          {/* <div className="flex flex-col-reverse gap-y-4">
+            {messages.map((message, i) => (
               <div
-                key={message.content}
+                key={`${i}-${message}`}
                 className={cn(
                   "p-8 w-full flex items-start gap-x-8 rounded-lg",
                   message.role === "user"
@@ -132,33 +131,38 @@ const CodePage = () => {
                 )}
               >
                 {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-                <p className="text-sm">
-                  <ReactMarkdown
-                    components={{
-                      pre: ({ node, ...props }) => (
-                        <div className="overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
-                          <pre {...props} />
-                        </div>
-                      ),
-                      code: ({ node, ...props }) => (
-                        <code
-                          className="bg-black/10 rounded-lg p-1"
-                          {...props}
-                        />
-                      ),
-                    }}
-                    className="text-sm overflow-hidden leading-7"
-                  >
-                    {message.content || ""}
-                  </ReactMarkdown>
-                </p>
+                <p className="text-sm">{message.content}</p>
               </div>
             ))}
-          </div>
+          </div> */}
+
+<div className="flex flex-col gap-y-4">
+  {messages.map((message, i) => (
+    <div
+      key={`${i}-${message.role}`}
+      className={`p-8 w-full flex items-start gap-x-8 rounded-lg ${
+        message.role === "user" ? "bg-white border border-black/10" : "bg-muted"
+      }`}
+    >
+      {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+      <p className="text-sm">{message.content}</p>
+    </div>
+  ))}
+</div>
+
+
         </div>
       </div>
     </div>
   );
 };
 
-export default CodePage;
+const Page = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ConversationPage />
+    </Suspense>
+  )
+}
+
+export default Page

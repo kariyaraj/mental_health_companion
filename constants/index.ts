@@ -1,3 +1,4 @@
+import exp from "constants";
 import {
   Code,
   Facebook,
@@ -6,10 +7,15 @@ import {
   Instagram,
   LayoutDashboard,
   MessageSquare,
+  UserRound,
   Music,
   Settings,
   Twitter,
   VideoIcon,
+  AlertTriangle,
+  PersonStanding,
+  Brain,
+  SmilePlus
 } from "lucide-react";
 
 export const MAX_FREE_COUNTS = 100 as const;
@@ -20,66 +26,73 @@ export const TESTIMONIALS = [
     image: "/testimonials/raj.jpeg",
     title: "Marketing Specialist",
     description:
-      "This application has significantly boosted our marketing efforts.",
+      "It's almost as if I'm talking to my therapist.At first, I couldn't believe it was a chatbot. It feels like it knows me better than I know myself sometimes.",
   },
   {
     name: "Dhyey",
     image: "/testimonials/dhyey.jpeg",
     title: "Student",
     description:
-      "As a student, this app has been a lifesaver for organizing my tasks and schedules.",
+      "I got my first job during the pandemic and, recently, it was my first time ever going into an office. I had really bad social anxiety, so my therapist recommended I try out Elomia. It helped me to manage my anxious thoughts in real-time, so I didn't have to wait until my next session to discuss them.",
   },
   {
     name: "Srijit",
     image: "/testimonials/aniket.jpeg",
     title: "Entrepreneur",
     description:
-      "The efficiency and reliability of this tool are unparalleled. Highly recommended!",
-  },
-  {
-    name: "Nityam",
-    image: "/testimonials/nityam.jpeg",
-    title: "Graphic Designer",
-    description: "Incredible features and user-friendly design. Love it!",
+      "I had difficulty finding the words to express myself to my boss and I needed quick advice, so I decided to try Elomia. Since then, I have used it for everything. It even helped me gain perspective on my relationship with my fiancé. I am so grateful for this app.",
   },
 ] as const;
 
 export const TOOLS = [
   {
-    label: "Conversation",
+    label: "General Chat",
     icon: MessageSquare,
     color: "text-violet-500",
     bgColor: "bg-violet-500/10",
     href: "/conversation",
+    description:"Demo"
   },
   {
-    label: "Music Generation",
-    icon: Music,
-    color: "text-emerald-500",
+    label: "Crisis Support",
+    icon: AlertTriangle,
+    color: "text-violet-500",
     bgColor: "bg-violet-500/10",
-    href: "/music",
+    href: "/crisis-support",
+    description: "Demo"
   },
   {
-    label: "Image Generation",
-    icon: ImageIcon,
-    color: "text-pink-700",
-    bgColor: "bg-pink-700/10",
-    href: "/image",
+    label: "Therapist",
+    icon: PersonStanding,
+    color: "text-violet-500",
+    bgColor: "bg-violet-500/10",
+    href: "/therapist",
+    description: "Demo"
   },
   {
-    label: "Video Generation",
-    icon: VideoIcon,
-    color: "text-orange-700",
-    bgColor: "bg-orange-700/10",
-    href: "/video",
+    label: "Mindfulness and Meditation",
+  icon: Brain,
+  color: "text-violet-500",
+  bgColor: "bg-violet-500/10",
+  href: "/mindfulness",
+  description: "Demo"
   },
   {
-    label: "Code Generation",
-    icon: Code,
-    color: "text-green-700",
-    bgColor: "bg-green-700/10",
-    href: "/code",
+    label: "Mood Tracking",
+    icon: SmilePlus,
+    color: "text-violet-500",
+    bgColor: "bg-violet-500/10",
+    href: "/mood-tracking",
+    description: "Demo"
   },
+  // {
+  //   label: "Code Generation",
+  //   icon: Code,
+  //   color: "text-green-700",
+  //   bgColor: "bg-green-700/10",
+  //   href: "/code",
+  //   description:"Demo"
+  // },
 ] as const;
 
 export const ROUTES = [
@@ -89,13 +102,22 @@ export const ROUTES = [
     href: "/dashboard",
     color: "text-sky-500",
   },
+  {
+    label: "Profile",
+    icon: UserRound,
+    href: "/profile",
+    color: "text-sky-500",
+  },
   ...TOOLS,
+] as const;
+
+export const SETTINGS = [
   {
     label: "Settings",
     icon: Settings,
     href: "/settings",
     color: null,
-  },
+  }
 ] as const;
 
 export const FOOTER_LINKS = [

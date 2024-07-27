@@ -45,7 +45,7 @@ export const ProModal = () => {
         <DialogHeader>
           <DialogTitle className="flex justify-center items-center flex-col gap-y-4 pb-2">
             <div className="flex items-center gap-x-2 font-bold py-1">
-              Upgrade to Genie
+              Upgrade to Alyssa
               <Badge className="uppercase text-sm py-1" variant="premium">
                 pro
               </Badge>
@@ -62,10 +62,8 @@ export const ProModal = () => {
                   <div className={cn("p-2 w-fit rounded-md", tool.bgColor)}>
                     <tool.icon className={cn("w-6 h-6", tool.color)} />
                   </div>
-
                   <div className="font-semibold text-sm">{tool.label}</div>
                 </div>
-
                 <Check className="text-primary w-5 h-5" />
               </Card>
             ))}

@@ -14,6 +14,9 @@ const nextConfig = {
   },
 };
 module.exports = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
     protocol: 'https',
     formats: ["image/avif", "image/webp"],

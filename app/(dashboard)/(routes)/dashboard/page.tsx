@@ -2,7 +2,7 @@
 
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-
+import { Suspense } from "react";
 import { Card } from "@/components/ui/card";
 import { TOOLS } from "@/constants";
 import { cn } from "@/lib/utils";
@@ -14,10 +14,10 @@ const DashboardPage = () => {
     <div>
       <div className="mb-8 space-y-4">
         <h2 className="text-2xl md:text-4xl font-bold text-center">
-          Explore the power of AI
+          Explore the power of AI Companion
         </h2>
         <p className="text-muted-foreground font-light text-sm md:text-lg text-center">
-          Chat with the smartest AI - Experience the power of AI.
+          Chat with the Alyssa - Experience the power of <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Therapeutic AI</span>.
         </p>
       </div>
 
@@ -44,4 +44,12 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+const Page = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DashboardPage />
+    </Suspense>
+  )
+}
+
+export default Page
