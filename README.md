@@ -1,17 +1,8 @@
 <a name="readme-top"></a>
 
-# Genie - A Modern Next.js 14 SaaS AI Platform.
+# Alyssa - A Modern Next.js 14 AI Mental Health Companion App.
 
-![Genie - A Modern Next.js 14 SaaS AI Platform.](/.github/images/img_main.png "Genius - A Modern Next.js 14 SaaS AI Platform.")
-
-[![Ask Me Anything!](https://flat.badgen.net/static/Ask%20me/anything?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy "Ask Me Anything!")
-[![GitHub license](https://flat.badgen.net/github/license/sanidhyy/genius-ai?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/genius-ai/blob/main/LICENSE "GitHub license")
-[![Maintenance](https://flat.badgen.net/static/Maintained/yes?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/genius-ai/commits/main "Maintenance")
-[![GitHub branches](https://flat.badgen.net/github/branches/sanidhyy/genius-ai?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/genius-ai/branches "GitHub branches")
-[![Github commits](https://flat.badgen.net/github/commits/sanidhyy/genius-ai?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/genius-ai/commits "Github commits")
-[![GitHub issues](https://flat.badgen.net/github/issues/sanidhyy/genius-ai?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/genius-ai/issues "GitHub issues")
-[![GitHub pull requests](https://flat.badgen.net/github/prs/sanidhyy/genius-ai?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/genius-ai/pulls "GitHub pull requests")
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b63626db-a322-49c1-b8d7-60ab157e7da6/deploy-status)](https://ai-genius.netlify.app/ "Netlify Status")
+![alyssa - A Modern Next.js 14 AI Mental Health Companion App.](/.github/images/img_main.png "alyssa - A Modern Next.js 14 SaaS AI Platform.")
 
 <!-- Table of Contents -->
 <details>
@@ -29,7 +20,6 @@
 - [Stats](#wrench-stats)
 - [Contribute](#raised_hands-contribute)
 - [Acknowledgements](#gem-acknowledgements)
-- [Buy Me a Coffee](#coffee-buy-me-a-coffee)
 - [Follow Me](#rocket-follow-me)
 - [Learn More](#books-learn-more)
 - [Deploy on Vercel](#page_with_curl-deploy-on-vercel)
@@ -44,7 +34,7 @@
 Here is the folder structure of this app.
 
 ```bash
-genius-ai/
+alyssa-ai/
   |- app/
     |-- (auth)/
         |--- (routes)/
@@ -165,9 +155,6 @@ OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 # replicate api token
 REPLICATE_API_TOKEN=r8_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-# aiven database url
-DATABASE_URL="mysql://<username>:<password>@<host>:<port>/genius-ai?ssl-mode=REQUIRED"
-
 # stripe api/webhook secret key
 STRIPE_API_SECRET_KEY=sk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 STRIPE_WEBHOOK_SECRET=whsec_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -198,15 +185,7 @@ Sign up or log in to [Replicate](https://replicate.ai/). Once logged in, navigat
 REPLICATE_API_TOKEN=r8_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-### 7. Aiven Database URL
-
-If you don't have an Aiven account, sign up [here](https://aiven.io/). After creating an account, set up a MySQL database. In the Aiven dashboard, find your database connection details and construct the `DATABASE_URL` in the following format:
-
-```env
-DATABASE_URL="mysql://<username>:<password>@<host>:<port>/genius-ai?ssl-mode=REQUIRED"
-```
-
-### 8. Stripe API and Webhook Keys
+### 7. Stripe API and Webhook Keys
 
 For Stripe, sign up or log in to your [Stripe Dashboard](https://dashboard.stripe.com/register). Once logged in, go to Developers > API keys to find your API secret key and webhook secret. Set them as `STRIPE_API_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` in your project's environment.
 
@@ -215,7 +194,7 @@ STRIPE_API_SECRET_KEY=sk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 STRIPE_WEBHOOK_SECRET=whsec_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-### 9. App Base URL
+### 8. App Base URL
 
 Set the base URL of your application as `NEXT_PUBLIC_APP_URL` in your project's environment.
 
@@ -223,7 +202,7 @@ Set the base URL of your application as `NEXT_PUBLIC_APP_URL` in your project's 
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```
 
-### 10. Crisp Website ID
+### 9. Crisp Website ID
 
 Sign up on [Crisp](https://crisp.chat/en/) and create a website. Once created, find your website ID in the Crisp dashboard and set it as `NEXT_PUBLIC_CRISP_WEBSITE_ID` in your project's environment.
 
@@ -231,9 +210,9 @@ Sign up on [Crisp](https://crisp.chat/en/) and create a website. Once created, f
 NEXT_PUBLIC_CRISP_WEBSITE_ID=xxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
 
-11. Open terminal in root directory. Run `npm install --legacy-peer-deps` or `yarn install --legacy-peer-deps`.
+10. Open terminal in root directory. Run `npm install --legacy-peer-deps` or `yarn install --legacy-peer-deps`.
 
-12. Now app is fully configured 👍 and you can start using this app using either one of `npm run dev` or `yarn dev`.
+11. Now app is fully configured 👍 and you can start using this app using either one of `npm run dev` or `yarn dev`.
 
 **NOTE:** Please make sure to keep your API keys and configuration values secure and do not expose them publicly.
 
@@ -243,17 +222,9 @@ NEXT_PUBLIC_CRISP_WEBSITE_ID=xxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
 
 ![Conversation Page](/.github/images/img2.png "Conversation Page")
 
-![Image Generation](/.github/images/img3.png "Image Generation")
-
-![Code Generation](/.github/images/img4.png "Code Generation")
-
 ## :gear: Tech Stack
 
 [![React JS](https://skillicons.dev/icons?i=react "React JS")](https://react.dev/ "React JS") [![Next JS](https://skillicons.dev/icons?i=next "Next JS")](https://nextjs.org/ "Next JS") [![Typescript](https://skillicons.dev/icons?i=ts "Typescript")](https://www.typescriptlang.org/ "Typescript") [![Tailwind CSS](https://skillicons.dev/icons?i=tailwind "Tailwind CSS")](https://tailwindcss.com/ "Tailwind CSS") [![Netlify](https://skillicons.dev/icons?i=netlify "Netlify")](https://netlify.app/ "Netlify") [![Prisma](https://skillicons.dev/icons?i=prisma "Prisma")](https://prisma.io/ "Prisma") [![MySQL](https://skillicons.dev/icons?i=mysql "MySQL")](https://mysql.com/ "MySQL")
-
-## :wrench: Stats
-
-[![Stats for Genius](/.github/images/stats.svg "Stats for Genius")](https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fai-genius.netlify.app%2F "Stats for Genius")
 
 ## :raised_hands: Contribute
 
@@ -261,7 +232,7 @@ You might encounter some bugs while using this app. You are more than welcome to
 
 ## :gem: Acknowledgements
 
-Useful resources and dependencies that are used in Genius.
+Useful resources and dependencies that are used in alyssa.
 
 - [@clerk/nextjs](https://www.npmjs.com/package/@clerk/nextjs): ^4.29.3
 - [@hookform/resolvers](https://www.npmjs.com/package/@hookform/resolvers): ^3.3.4
