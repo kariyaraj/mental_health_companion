@@ -12,7 +12,7 @@ const DashboardLayout = async ({ children }: PropsWithChildren) => {
   return (
     <div className="h-full relative">
       <div className="hidden h-full md:flex md:w-72 md:flex-col md:fixed md:inset-y-0 bg-gray-900">
-        <Sidebar apiLimitCount={apiLimitCount} isPro={isPro} />
+      <Sidebar apiLimitCount={apiLimitCount} isPro={isPro} />
       </div>
 
       <main className="md:md:pl-72">

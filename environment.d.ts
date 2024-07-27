@@ -22,6 +22,10 @@ declare global {
 
       // crisp website id
       NEXT_PUBLIC_CRISP_WEBSITE_ID: string;
+
+      OLLAMA_API_URL: string;
+
+      PORT: number;
     }
   }
 }

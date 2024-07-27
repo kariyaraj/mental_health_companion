@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
-import { MessageSquare } from "lucide-react";
+import { PersonStanding } from "lucide-react";
 import { useRouter } from "next/navigation";
 import type { ChatCompletionRequestMessage } from "openai";
 import { useState } from "react";
@@ -10,9 +10,6 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
 import { Suspense } from "react";
-import ReactMarkdown from "react-markdown";
-// import DOMpurify from 'dompurify'
-
 import { BotAvatar } from "@/components/bot-avatar";
 import { Empty } from "@/components/empty";
 import { Heading } from "@/components/heading";
@@ -47,7 +44,7 @@ const ConversationPage = () => {
       };
       const newMessages = [...messages, userMessage];
 
-      const response = await axios.post("/api/conversation", {
+      const response = await axios.post("/api/therapist", {
         messages: newMessages,
         userMessage: userMessage,
       });
@@ -69,9 +66,9 @@ const ConversationPage = () => {
   return (
     <div>
       <Heading
-        title="General Chat"
-        description="Engage in everyday conversations and share your thoughts with us."
-        icon={MessageSquare}
+        title="Therapist"
+        description="Receive personalized support and insights from our AI therapist, designed to understand and assist you anytime."
+        icon={PersonStanding}
         iconColor="text-violet-500"
         bgColor="bg-violet-500/10"
       />
@@ -94,7 +91,7 @@ const ConversationPage = () => {
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
                         aria-disabled={isLoading}
-                        placeholder="Can you help me with some tips for improving my daily routine?"
+                        placeholder="What strategies can the AI therapist suggest for handling negative thoughts?"
                         {...field}
                       />
                     </FormControl>
@@ -114,55 +111,47 @@ const ConversationPage = () => {
         </div>
 
         <div className="space-y-4 mt-4">
-  {isLoading && (
-    <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
-      <Loader />
-    </div>
-  )}
-  {messages.length === 0 && !isLoading && (
-    <Empty label="No conversation started." />
-  )}
-  <div className="flex flex-col-reverse gap-y-4">
-    {messages
-      .slice()  // Create a copy to avoid mutating the original array
-      .reverse() // Reverse the order of the array
-      .map((message) => (
-        <div
-          key={message.content}
-          className={cn(
-            "p-8 w-full flex items-start gap-x-8 rounded-lg",
-            message.role === "user"
-              ? "bg-white border border-black/10"
-              : "bg-muted",
+          {isLoading && (
+            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
+              <Loader />
+            </div>
           )}
-        >
-          {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-          <p className="text-sm">
-            <ReactMarkdown
-              components={{
-                pre: ({ node, ...props }) => (
-                  <div className="overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
-                    <pre {...props} />
-                  </div>
-                ),
-                code: ({ node, ...props }) => (
-                  <code
-                    className="bg-black/10 rounded-lg p-1"
-                    {...props}
-                  />
-                ),
-              }}
-              className="text-sm overflow-hidden leading-7"
-            >
-              {message.content || ""}
-            </ReactMarkdown>
-          </p>
-        </div>
-      ))}
-  </div>
+          {messages.length === 0 && !isLoading && (
+            <Empty label="No conversation started." />
+          )}
+          {/* <div className="flex flex-col-reverse gap-y-4">
+            {messages.map((message, i) => (
+              <div
+                key={`${i}-${message}`}
+                className={cn(
+                  "p-8 w-full flex items-start gap-x-8 rounded-lg",
+                  message.role === "user"
+                    ? "bg-white border border-black/10"
+                    : "bg-muted",
+                )}
+              >
+                {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+                <p className="text-sm">{message.content}</p>
+              </div>
+            ))}
+          </div> */}
+
+<div className="flex flex-col gap-y-4">
+  {messages.map((message, i) => (
+    <div
+      key={`${i}-${message.role}`}
+      className={`p-8 w-full flex items-start gap-x-8 rounded-lg ${
+        message.role === "user" ? "bg-white border border-black/10" : "bg-muted"
+      }`}
+    >
+      {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+      <p className="text-sm">{message.content}</p>
+    </div>
+  ))}
 </div>
 
 
+        </div>
       </div>
     </div>
   );

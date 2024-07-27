@@ -56,30 +56,12 @@
     "html",
     "css"
   ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sanidhyy/genius-ai.git"
-  },
-  "homepage": "https://github.com/sanidhyy/genius-ai#readme",
-  "bugs": {
-    "url": "https://github.com/sanidhyy/genius-ai/issues",
-    "email": "sanidhya.verma12345@gmail.com"
-  },
-  "funding": [
-    {
-      "type": "patreon",
-      "url": "https://www.patreon.com/sanidhy"
-    },
-    {
-      "type": "Buy me a coffee",
-      "url": "https://www.buymeacoffee.com/sanidhy"
-    }
-  ],
   "dependencies": {
     "@clerk/nextjs": "^4.29.3",
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@hookform/resolvers": "^3.3.4",
-    "@ibm-watson/assistant-web-chat-react": "^1.1.1",
     "@prisma/client": "^5.16.1",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
@@ -91,9 +73,13 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "crisp-sdk-web": "^1.0.21",
+    "dompurify": "^3.1.6",
+    "dotenv": "^16.4.5",
     "lucide-react": "^0.309.0",
-    "next": "14.0.4",
-    "openai": "^3.3.0",
+    "marked": "^13.0.2",
+    "mysql2": "^3.10.3",
+    "next": "^14.2.5",
+    "openai": "^3.0.0",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.49.3",
@@ -108,6 +94,7 @@
     "zustand": "^4.4.7"
   },
   "devDependencies": {
+    "@types/dompurify": "^3.0.5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

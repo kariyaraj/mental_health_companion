@@ -1,5 +1,5 @@
 import { Settings } from "lucide-react";
-
+import { Suspense } from "react";
 import { Heading } from "@/components/heading";
 import { SubscriptionButton } from "@/components/subscription-button";
 import { checkSubscription } from "@/lib/subscription";
@@ -30,4 +30,12 @@ const SettingsPage = async () => {
   );
 };
 
-export default SettingsPage;
+const Page = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SettingsPage />
+    </Suspense>
+  )
+}
+
+export default Page

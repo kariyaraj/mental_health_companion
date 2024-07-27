@@ -19,7 +19,7 @@ const AuthLayout = ({ children }: PropsWithChildren) => {
         </div>
 
         <h1 className={cn("text-2xl font-bold", montserrat.className)}>
-          Genius
+          Alyssa
         </h1>
       </Link>
       {children}

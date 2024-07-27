@@ -23,3 +23,11 @@ model UserSubscription {
   stripePriceId           String?   @unique @map(name: "stripe_price_id")
   stripeCurrentPeriodEnd  DateTime? @unique @map(name: "stripe_current_period_end")
 }
+model UserDetails {
+  id                      String    @id @default(cuid())
+  userId                  String    @unique
+  fullName                String?
+  dateOfBirth             DateTime?
+  gender                  String?   // Male or Female
+  medications             String?
+}
