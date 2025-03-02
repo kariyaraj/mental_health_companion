@@ -75,7 +75,7 @@
     "crisp-sdk-web": "^1.0.21",
     "dompurify": "^3.1.6",
     "dotenv": "^16.4.5",
-    "lucide-react": "^0.309.0",
+    "lucide-react": "^0.475.0",
     "marked": "^13.0.2",
     "mysql2": "^3.10.3",
     "next": "^14.2.5",
